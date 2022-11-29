@@ -22,15 +22,15 @@
     <td><p style="-webkit-text-security: disc"  th:text="${u.password}"></p></td>
     <td>
       <form th:method="GET" th:action="@{/users/{id}/edit(id=${u.id})}">
-        <input type="submit" value="Edit">
+        <input type="submit" value="Редактировать">
       </form>
       <form th:method="DELETE" th:action="@{/users/{id}(id=${u.id})}">
-        <input type="submit" value="Delete">
+        <input type="submit" value="Удалить">
       </form>
     </td>
   </tr>
 </table>
 <br>
-<input type="button" value="Add new user" onclick="window.location.href = '/users/add'"/>
+<input type="button" value="Добавить нового пользователя" onclick="window.location.href = '/users/add'"/>
 </body>
 </html>
