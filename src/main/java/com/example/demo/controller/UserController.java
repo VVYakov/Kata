@@ -28,12 +28,6 @@ public class UserController {
         return "/users";
     }
 
-    @GetMapping("/{id}")
-    public String show(@PathVariable("id") int id, Model model) {
-        model.addAttribute("user", userService.getUserById(id));
-        return "/user";
-    }
-
     @GetMapping("/add")
     public String addUserForm(Model model) {
         model.addAttribute("user", new User());
@@ -41,7 +35,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public String addUser(@ModelAttribute("user") User user) {
+    public String SaveUserInForm(@ModelAttribute("user") User user) {
         userService.addUser(user);
         return "redirect:/users";
     }
@@ -60,7 +54,7 @@ public class UserController {
     }
 
     @PostMapping("/{id}")
-    public String update(@ModelAttribute("user") User user,
+    public String updateForm(@ModelAttribute("user") User user,
                          @PathVariable("id") long id) {
         userService.updateUser(user, id);
         return "redirect:/users";
